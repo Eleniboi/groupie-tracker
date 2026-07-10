@@ -6,8 +6,8 @@ import(
 )
 
 
-type concertInfo struct{
+type Concert struct{
 
-	Date string
 	Location string
+	Dates []string
 }
