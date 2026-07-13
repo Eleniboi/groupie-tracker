@@ -1,23 +1,22 @@
-package main 
+package main
 
-
-import(
-	"fmt"
-)
-
-
-type Concert struct{
-
+type Concert struct {
 	Location string
-	Dates []string
+	Dates    []string
 }
 
-type Artist struct{
+type Artist struct {
+	ID           int      `json:"id"`
+	Name         string   `json:"name"`
+	Image        string   `json:"image"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`
+	Members      []string `json:"members"`
+	Concerts     []Concert
+}
 
-	ID int	`json:id`
-	Name string  `json:name`
-	Image string
-	CreationDate int
-	FirstAlbum string
-	Concerts []string
+type Relation struct{
+
+	ID int `json:"id"`
+	DatesLocations map[string][]string `json:"datesLocations"`
 }
