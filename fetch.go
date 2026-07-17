@@ -47,7 +47,7 @@ func FetchRelations() ([]Relation, error) {
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("something went wrong: %w", resp.StatusCode)
+		return nil, fmt.Errorf("something went wrong: %d", resp.StatusCode)
 	}
 
 	defer resp.Body.Close()
