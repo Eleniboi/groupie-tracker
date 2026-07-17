@@ -33,11 +33,12 @@ func MergeArtistsWithRelations(artists []Artist, relations []Relation) []Artist 
 		matchedRelation := RelationByID[artist.ID]
 
 		mapper := matchedRelation.DatesLocations
+
 		Concertslice := BuildConcerts(mapper)
 
 		NewArtist.Concerts = Concertslice
 
-		sliceArtist = append(artist.Concerts, New)
+		sliceArtist = append(sliceArtist, NewArtist)
 	}
 	return sliceArtist
 }
