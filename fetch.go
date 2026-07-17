@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+//return a slice of artist
 func FetchArtists() ([]Artist, error) {
 
 	resp, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
@@ -40,7 +41,7 @@ func FetchArtists() ([]Artist, error) {
 
 func FetchRelations() ([]Relation, error) {
 
-	resp, err := http.Get("https://groupietrackers.herokuapp.com/api/relations")
+	resp, err := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
 	if err != nil {
 		return nil, fmt.Errorf("error: %w", err)
@@ -58,13 +59,15 @@ func FetchRelations() ([]Relation, error) {
 		return nil, fmt.Errorf("error reading body: %w", err)
 	}
 
-	var relation []Relation
+	var Wrapindx WrapIndx
 
-	err = json.Unmarshal(data, &relation)
+	err = json.Unmarshal(data, &Wrapindx)
 
 	if err != nil {
 		return nil, fmt.Errorf("error while Unmarshaling: %w", err)
 	}
 
-	return relation, nil
+	//Wrapindx.Index locate the value []Relation 
+	sliceOfRelation := Wrapindx.Index
+	return sliceOfRelation, nil
 }

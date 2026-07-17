@@ -1,5 +1,7 @@
 package main
 
+
+
 type Concert struct {
 	Location string
 	Dates    []string
@@ -18,4 +20,8 @@ type Artist struct {
 type Relation struct {
 	ID             int                 `json:"id"`
 	DatesLocations map[string][]string `json:"datesLocations"`
+}
+
+type WrapIndx struct{
+   Index []Relation `json:"index"`
 }
