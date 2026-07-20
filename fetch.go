@@ -15,11 +15,11 @@ func FetchArtists() ([]Artist, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error: %w", err)
 	}
-
+	
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("something went wrong: %d", resp.StatusCode)
 	}
-
+	fmt.Println(http.ContentType)
 	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
