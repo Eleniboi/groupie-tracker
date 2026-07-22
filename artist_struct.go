@@ -17,6 +17,7 @@ type Artist struct {
 	Concerts     []Concert
 }
 
+
 type Relation struct {
 	ID             int                 `json:"id"`
 	DatesLocations map[string][]string `json:"datesLocations"`
